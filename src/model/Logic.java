@@ -211,6 +211,10 @@ public class Logic {
         return false;
     }
 
+    public static boolean isStalemate(Player player) {
+        return isPossibleAtLeastOneMove(player);
+    }
+
     private static boolean isCheck(Player player) {
         //найти короля стороны чей ход
         Cell kingCell = getKingCell(player.isColor());

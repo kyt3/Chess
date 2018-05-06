@@ -34,13 +34,13 @@ public class Model {
             if (!whoIsMove) {
                 gameMove(whitePlayer, startCell, endCell);
 
-                if (Logic.isMate(blackPlayer)) {
+                if (Logic.isMate(blackPlayer) || Logic.isStalemate(blackPlayer)) {
                     generateGameFinishedEvent();
                 }
             } else {
                 gameMove(blackPlayer, startCell, endCell);
 
-                if (Logic.isMate(whitePlayer)) {
+                if (Logic.isMate(whitePlayer) || Logic.isStalemate(whitePlayer)) {
                     generateGameFinishedEvent();
                 }
             }
