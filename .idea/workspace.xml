@@ -7,51 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bcd1efe7-8e81-4d2c-af81-80de907fc682" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/Controller/Controller.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/Form/Form.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/Game/MainGame.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/Model/Abstract/Figure.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/Model/Events/GameFinishedEvent.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/Model/Events/GameFinishedListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/Model/Events/ModelChangedEvent.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/Model/Events/ModelChangedListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/Model/Events/NotPossibleMoveEvent.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/Model/Events/NotPossibleMoveListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/Model/Events/PawnHasComeToEndOfChessBoardEvent.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/Model/Events/PawnHasComeToEndOfChessBoardListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/Model/Exceptions/ImpossibleMove.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/Model/Logic.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/Model/Model.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/Model/Player.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/Model/Real/Bishop.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/Model/Real/Cell.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/Model/Real/ChessBoard.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/Model/Real/King.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/Model/Real/Knight.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/Model/Real/Pawn.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/Model/Real/Queen.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/Model/Real/Rook.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/View/CellView.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/View/ChessBoardView.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/View/FigureView.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/View/FrameChangeFigure.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/View/MyFrame.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/View/View$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/View/View.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/com/intellij/uiDesigner/core/AbstractLayout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/com/intellij/uiDesigner/core/DimensionInfo.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/com/intellij/uiDesigner/core/GridConstraints.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/com/intellij/uiDesigner/core/GridLayoutManager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/com/intellij/uiDesigner/core/HorizontalInfo.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/com/intellij/uiDesigner/core/LayoutState.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/com/intellij/uiDesigner/core/Spacer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/com/intellij/uiDesigner/core/SupportCode.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/com/intellij/uiDesigner/core/Util.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Chess/com/intellij/uiDesigner/core/VerticalInfo.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Logic.java" afterPath="$PROJECT_DIR$/src/model/Logic.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Model.java" afterPath="$PROJECT_DIR$/src/model/Model.java" />
     </list>
     <ignored path="Chess.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -858,7 +814,7 @@
       <workItem from="1523398796917" duration="32304000" />
       <workItem from="1523469318100" duration="6144000" />
       <workItem from="1525632350440" duration="1238000" />
-      <workItem from="1525635053636" duration="7999000" />
+      <workItem from="1525635053636" duration="8010000" />
     </task>
     <task id="LOCAL-00001" summary="Commit">
       <created>1525644498997</created>
@@ -867,11 +823,18 @@
       <option name="project" value="LOCAL" />
       <updated>1525644498997</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Commit">
+      <created>1525645155361</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1525645155361</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="157431000" />
+    <option name="totallyTimeSpent" value="157442000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="57" y="52" width="1309" height="716" extended-state="0" />
