@@ -11,10 +11,10 @@ import java.io.IOException;
 /**
  * Created by kot on 05.04.18.
  */
-public class ChessBoardView extends JPanel {
+class ChessBoardView extends JPanel {
     private CellView[][] cellViews;
 
-    public ChessBoardView() throws IOException {
+     ChessBoardView() throws IOException {
         cellViews = new CellView[8][8];
         setLayout(new GridLayout(8, 8, 0, 0));
 
@@ -37,7 +37,7 @@ public class ChessBoardView extends JPanel {
         }
     }
 
-    public void moveFigures() throws IOException {
+    void moveFigures() throws IOException {
         //переопределение доски
         Cell[][] chessBoardCells = ChessBoard.getInstance().getCells();
 
@@ -62,7 +62,7 @@ public class ChessBoardView extends JPanel {
     }
 
 
-    public void deleteRedBackground() {
+    void deleteBackground() {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 CellView cellView = cellViews[j][i];

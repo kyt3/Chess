@@ -10,7 +10,7 @@ import java.io.IOException;
 public class MyFrame extends JFrame {
     private ChessBoardView chessBoardView;
 
-    public MyFrame() throws HeadlessException, IOException {
+    MyFrame() throws HeadlessException, IOException {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         chessBoardView = new ChessBoardView();
         setContentPane(chessBoardView);
@@ -19,15 +19,6 @@ public class MyFrame extends JFrame {
         setVisible(true);
     }
 
-//    @Override
-//    public void repaint() {
-//        try {
-//            chessBoardView = new ChessBoardView();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        setContentPane(chessBoardView);
-//    }
 
 
     @Override
@@ -40,7 +31,7 @@ public class MyFrame extends JFrame {
         super.repaint();
     }
 
-    public void deleteRedBackground() {
-        chessBoardView.deleteRedBackground();
+    void deleteBackground() {
+        chessBoardView.deleteBackground();
     }
 }

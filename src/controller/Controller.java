@@ -3,11 +3,12 @@ package controller;
 import model.Model;
 import model.real.Cell;
 import model.real.ChessBoard;
-import view.View;
 import view.CellView;
+import view.View;
 
 import javax.swing.*;
-import java.awt.event.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 /**
  * Created by kot on 01.04.18.
@@ -41,6 +42,7 @@ public class Controller implements MouseListener {
         return cells[x][y];
     }
 
+    @Override
     public void mouseClicked(MouseEvent mouseEvent) {
         if (mouseEvent.getSource() instanceof CellView) {
             JComponent component = (JComponent) mouseEvent.getComponent();
@@ -74,13 +76,13 @@ public class Controller implements MouseListener {
 
     private int getIndexFromCoordinatesX(int number) {
         int width = view.getMyFrame().getSize().width;
-        int howMuchPixelsOnCell = width / 8;
+        int howMuchPixelsOnCell = (int) (width / 8.3);
         return number / howMuchPixelsOnCell;
     }
 
     private int getIndexFromCoordinatesY(int number) {
         int height = view.getMyFrame().getSize().height;
-        int howMuchPixelsOnCell = height / 8;
+        int howMuchPixelsOnCell = (int) (height / 8.8);
         int reverseValue = number / howMuchPixelsOnCell;
         switch (reverseValue) {
             case 0:

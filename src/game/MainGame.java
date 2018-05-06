@@ -1,9 +1,9 @@
 package game;
 
 
+import controller.Controller;
 import model.Model;
 import view.View;
-import controller.Controller;
 
 import java.io.IOException;
 

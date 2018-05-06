@@ -1,8 +1,8 @@
 package model;
 
+import model.abstract_.Figure;
 import model.events.*;
 import model.exceptions.ImpossibleMove;
-import model.abstract_.Figure;
 import model.real.*;
 
 import java.io.IOException;
@@ -49,11 +49,7 @@ public class Model {
                 generatePawnHasComeToEndOfChessBoardEvent(whoIsMove);
             }
 
-            if (!whoIsMove) {
-                whoIsMove = true;
-            } else {
-                whoIsMove = false;
-            }
+            whoIsMove = !whoIsMove;
 
             generateModelChangedEvent();
 
@@ -202,29 +198,6 @@ public class Model {
         }
     }
 
-    private int parseCharToInt(char ch) {
-        switch (ch) {
-            case 'a':
-                return 0;
-            case 'b':
-                return 1;
-            case 'c':
-                return 2;
-            case 'd':
-                return 3;
-            case 'e':
-                return 4;
-            case 'f':
-                return 5;
-            case 'g':
-                return 6;
-            case 'h':
-                return 7;
-            default:
-                return 9;
-        }
-    }
-
     private void createChessBoard() {
         Cell[][] cells = createCellsWithFigures();
         ChessBoard chessBoard = ChessBoard.getInstance(cells);
@@ -234,9 +207,7 @@ public class Model {
         Cell[][] cells = new Cell[8][8];
         for (int i = 0; i < 8; i++) {
             boolean color;
-            if (i % 2 == 0) {
-                color = true;
-            } else color = false;
+            color = i % 2 == 0;
 
             for (int j = 0; j < 8; j++) {
                 switch (i) {
@@ -257,9 +228,7 @@ public class Model {
                         break;
                 }
 
-                if (color) {
-                    color = false;
-                } else color = true;
+                color = !color;
             }
         }
 

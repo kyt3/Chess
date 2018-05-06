@@ -27,10 +27,6 @@ public class View implements ModelChangedListener, GameFinishedListener,
     @Override
     public void modelChangedActions(ModelChangedEvent event) {
         myFrame.repaint();
-//        int width = myFrame.getSize().width;
-//        int height = myFrame.getSize().height;
-//        myFrame.setSize(width + 100, height + 100);
-//        myFrame.setSize(width, height);
         myFrame.update(myFrame.getGraphics());
     }
 
@@ -55,6 +51,6 @@ public class View implements ModelChangedListener, GameFinishedListener,
 
     @Override
     public void actionsWhenNotPossibleMove(NotPossibleMoveEvent event) {
-        myFrame.deleteRedBackground();
+        myFrame.deleteBackground();
     }
 }
