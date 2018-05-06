@@ -212,7 +212,7 @@ public class Logic {
     }
 
     public static boolean isStalemate(Player player) {
-        return isPossibleAtLeastOneMove(player);
+        return !isPossibleAtLeastOneMove(player);
     }
 
     private static boolean isCheck(Player player) {
