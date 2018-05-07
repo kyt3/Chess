@@ -33,16 +33,8 @@ public class Model {
 
             if (!whoIsMove) {
                 gameMove(whitePlayer, startCell, endCell);
-
-                if (Logic.isMate(blackPlayer) || Logic.isStalemate(blackPlayer)) {
-                    generateGameFinishedEvent();
-                }
             } else {
                 gameMove(blackPlayer, startCell, endCell);
-
-                if (Logic.isMate(whitePlayer) || Logic.isStalemate(whitePlayer)) {
-                    generateGameFinishedEvent();
-                }
             }
 
             if (Logic.existPawnInTheEndOfChessBoard(whoIsMove)) {
@@ -52,6 +44,11 @@ public class Model {
             whoIsMove = !whoIsMove;
 
             generateModelChangedEvent();
+
+            if (Logic.isMate(whitePlayer) || Logic.isStalemate(whitePlayer)
+                    || Logic.isMate(blackPlayer)|| Logic.isStalemate(blackPlayer)) {
+                generateGameFinishedEvent();
+            }
 
         } catch (ImpossibleMove impossibleMove) {
             generateNotPossibleMoveEvent();

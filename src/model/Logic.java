@@ -14,6 +14,18 @@ class Logic {
     private static Cell previousEndCell = null;
     private static Figure previousMovedFigure = null;
 
+    static void setPreviousStartCell(Cell previousStartCell) {
+        Logic.previousStartCell = previousStartCell;
+    }
+
+    static void setPreviousEndCell(Cell previousEndCell) {
+        Logic.previousEndCell = previousEndCell;
+    }
+
+    static void setPreviousMovedFigure(Figure previousMovedFigure) {
+        Logic.previousMovedFigure = previousMovedFigure;
+    }
+
     static boolean isPossibleMove(Player player, Cell startCell, Cell endCell) {
 
         //если фигуры нету false
@@ -46,9 +58,6 @@ class Logic {
             virtualMove(startCell, endCell);
             if (!isCheck(player)) {
                 inverseVirtualMove(endCell, startCell);
-                previousStartCell = startCell;
-                previousEndCell = endCell;
-                previousMovedFigure = startCell.getFigure();
                 return true;
             }
             inverseVirtualMove(endCell, startCell);

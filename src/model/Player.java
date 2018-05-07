@@ -18,6 +18,11 @@ class Player {
     }
 
     void move(Cell startCell, Cell endCell) {
+
+        Logic.setPreviousMovedFigure(startCell.getFigure());
+        Logic.setPreviousStartCell(startCell);
+        Logic.setPreviousEndCell(endCell);
+
         //для короля и для ладьи нужно следить за ходом
         if (startCell.getFigure() instanceof King) {
             King king = (King) startCell.getFigure();
