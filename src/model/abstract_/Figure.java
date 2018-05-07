@@ -10,7 +10,7 @@ public abstract class Figure {
         this.color = color;
     }
 
-    public boolean isColor() {
+    public boolean getColor() {
         return color;
     }
 

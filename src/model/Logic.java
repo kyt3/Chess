@@ -8,13 +8,13 @@ import java.util.ArrayList;
 /**
  * Created by kot on 28.03.18.
  */
-public class Logic {
+class Logic {
     private static Figure figureForVirtualMove = null;
     private static Cell previousStartCell = null;
     private static Cell previousEndCell = null;
     private static Figure previousMovedFigure = null;
 
-    public static boolean isPossibleMove(Player player, Cell startCell, Cell endCell) {
+    static boolean isPossibleMove(Player player, Cell startCell, Cell endCell) {
 
         //если фигуры нету false
         if (startCell.getFigure() == null) {
@@ -22,7 +22,7 @@ public class Logic {
         }
 
         //фигура на старте должна совпадать цветом с игроком
-        if (player.isColor() != startCell.getFigure().isColor()) {
+        if (player.isColor() != startCell.getFigure().getColor()) {
             return false;
         }
 
@@ -33,7 +33,7 @@ public class Logic {
 
         //на конечной клетке не может быть союзной фигуры
         if (endCell.getFigure() != null) {
-            if (player.isColor() == endCell.getFigure().isColor()) {
+            if (player.isColor() == endCell.getFigure().getColor()) {
                 return false;
             }
         }
@@ -56,7 +56,7 @@ public class Logic {
         return false;
     }
 
-    public static boolean isPossibleTakeOnTheAisle(Player player, Cell startCell, Cell endCell) {
+    static boolean isPossibleTakeOnTheAisle(Player player, Cell startCell, Cell endCell) {
         //возможно ли взять на проходе
         Figure figure = startCell.getFigure();
         //проверка на null
@@ -70,7 +70,7 @@ public class Logic {
         }
 
         //цвета пешки и игрока должны совпадать
-        if (player.isColor() != figure.isColor()) {
+        if (player.isColor() != figure.getColor()) {
             return false;
         }
 
@@ -117,10 +117,10 @@ public class Logic {
         return false;
     }
 
-    public static boolean isPossibleCasterling(Player player, Figure king, Cell endCell){
+    static boolean isPossibleCasterling(Player player, Figure king, Cell endCell){
         King king1 = (King) king;
         //цвет короля совпадает с цветом игрока
-        if (player.isColor() != king.isColor()) {
+        if (player.isColor() != king.getColor()) {
             return false;
         }
 
@@ -187,7 +187,7 @@ public class Logic {
         return true;
     }
 
-    public static boolean existPawnInTheEndOfChessBoard(boolean color) {
+    static boolean existPawnInTheEndOfChessBoard(boolean color) {
         if (!color) {
             //для белых конец доски по 7-му y
             return existPawnInTheLine(7);
@@ -197,21 +197,14 @@ public class Logic {
         }
     }
 
-    public static boolean isMate(Player player) {
+    static boolean isMate(Player player) {
         //нет шаха - нет мата
-        if (isCheck(player)) {
-            //проверить возможен ли хоть 1 ход, если нет - это мат
-            if (isPossibleAtLeastOneMove(player)) {
-                return false;
-            }
+        //проверить возможен ли хоть 1 ход, если нет - это мат
+        return isCheck(player) && !isPossibleAtLeastOneMove(player);
 
-            return true;
-        }
-
-        return false;
     }
 
-    public static boolean isStalemate(Player player) {
+    static boolean isStalemate(Player player) {
         return !isPossibleAtLeastOneMove(player);
     }
 
@@ -239,7 +232,7 @@ public class Logic {
             for (int j = 0; j < 8; j++) {
                 Cell cell = cells[j][i];
                 Figure figure = cell.getFigure();
-                if (figure instanceof King && figure.isColor() == color) {
+                if (figure instanceof King && figure.getColor() == color) {
                     return cell;
                 }
             }
@@ -287,7 +280,7 @@ public class Logic {
                 Cell cell = cells[j][i];
                 Figure figure = cell.getFigure();
 
-                if (figure != null && figure.isColor() == color) {
+                if (figure != null && figure.getColor() == color) {
                     resultList.add(cell);
                 }
             }
@@ -418,7 +411,7 @@ public class Logic {
 
     private static boolean isPossibleMovePawn(Cell startCell, Cell endCell) {
         //пешка ходит только вперед, бьет по диагонали, может ходить на 2 клетки в начальной позиции
-        boolean colorPlayer = startCell.getFigure().isColor();
+        boolean colorPlayer = startCell.getFigure().getColor();
 
         int startX = startCell.getX();
         int startY = startCell.getY();
@@ -473,17 +466,14 @@ public class Logic {
         int endY = endCell.getY();
 
         //если по верникали
-        if (startX == endX) {
+        if(startX == endX) {
             //проверить есть ли между клетками фигуры
             return notExistFiguresBetweenCellsXForRookMove(startX, startY, endY);
         }
 
         //та же идея
-        if (startY == endY) {
-            return notExistFiguresBetweenCellsYForRookMove(startY, startX, endX);
-        }
+        return startY == endY && notExistFiguresBetweenCellsYForRookMove(startY, startX, endX);
 
-        return false;
     }
 
     private static boolean isPossibleMoveKnight(Cell startCell, Cell endCell) {
@@ -494,24 +484,14 @@ public class Logic {
         int endY = endCell.getY();
 
         //если по х расстояние 1, тогда по y расстояние должно быть 2 и наоборот, чтобы получилась Г
-        if (Math.abs(startX - endX) == 1 && Math.abs(startY - endY) == 2) {
-            return true;
-        }
+        return Math.abs(startX - endX) == 1 && Math.abs(startY - endY) == 2 || Math.abs(startX - endX) == 2 && Math.abs(startY - endY) == 1;
 
-        if (Math.abs(startX - endX) == 2 && Math.abs(startY - endY) == 1) {
-            return true;
-        }
-
-        return false;
     }
 
     private static boolean isPossibleMoveQueen(Cell startCell, Cell endCell) {
         //королева может ходить как ладья или как слон
-        if (isPossibleMoveRook(startCell, endCell) || isPossibleMoveBishop(startCell, endCell)) {
-            return true;
-        }
+        return isPossibleMoveRook(startCell, endCell) || isPossibleMoveBishop(startCell, endCell);
 
-        return false;
     }
 
     private static boolean isPossibleMoveKing(Cell startCell, Cell endCell) {
@@ -526,11 +506,8 @@ public class Logic {
 
         //расстояние не должно быть > ходьбы по диагонали
         double dist = Math.sqrt(distX * distX + distY * distY);
-        if (dist <= Math.sqrt(2)) {
-            return true;
-        }
+        return dist <= Math.sqrt(2);
 
-        return false;
     }
 
     private static boolean notExistFiguresBetweenCellsYForRookMove(int y, int startX, int endX) {
@@ -558,11 +535,8 @@ public class Logic {
             }
         }
         //проверка есть ли фигура
-        if (isExistFiguresInCells(cellsToCheck)) {
-            return false;
-        }
+        return !isExistFiguresInCells(cellsToCheck);
 
-        return true;
     }
 
     private static boolean notExistFiguresBetweenCellsXForRookMove(int x, int startY, int endY) {
@@ -590,11 +564,8 @@ public class Logic {
             }
         }
 
-        if (isExistFiguresInCells(cellsToCheck)) {
-            return false;
-        }
+        return !isExistFiguresInCells(cellsToCheck);
 
-        return true;
     }
 
 }

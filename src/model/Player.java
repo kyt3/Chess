@@ -6,10 +6,10 @@ import model.real.*;
 /**
  * Created by kot on 28.03.18.
  */
-public class Player {
+class Player {
     private boolean color;
 
-    public Player(boolean color) {
+    Player(boolean color) {
         this.color = color;
     }
 
@@ -17,7 +17,7 @@ public class Player {
         return color;
     }
 
-    public void move(Cell startCell, Cell endCell) {
+    void move(Cell startCell, Cell endCell) {
         //для короля и для ладьи нужно следить за ходом
         if (startCell.getFigure() instanceof King) {
             King king = (King) startCell.getFigure();
@@ -34,7 +34,7 @@ public class Player {
         startCell.setFigure(null);
     }
 
-    public void casterling(Cell startCell, Cell endCell) {
+    void casterling(Cell startCell, Cell endCell) {
         //сделать рокировку в зависимости от цвета и стороны, жесткий хардкод
         if (endCell.getX() > startCell.getX()) {
             shortCasterling(startCell, endCell);
@@ -77,7 +77,7 @@ public class Player {
         move(startCellRook, endCellRook);
     }
 
-    public void takeOnTheAisle(Cell startCell, Cell endCell) {
+    void takeOnTheAisle(Cell startCell, Cell endCell) {
         if (!color) {
             //при взятии на проходе вражеская пешка будет находится на строго определенных линиях
             int y = 4;
@@ -97,7 +97,7 @@ public class Player {
         for (int i = 0; i < 8; i++) {
             Figure figure = cells[i][y].getFigure();
             if (figure != null) {
-                if (figure instanceof Pawn && figure.isColor() != color) {
+                if (figure instanceof Pawn && figure.getColor() != color) {
                     if (cells[i][y].getX() == endCell.getX()) {
                         cells[i][y].setFigure(null);
                     }

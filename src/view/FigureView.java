@@ -13,15 +13,15 @@ import java.io.IOException;
 /**
  * Created by kot on 05.04.18.
  */
-public class FigureView extends JComponent{
+class FigureView extends JComponent{
     private BufferedImage bufferedImage;
     private Figure figure;
 
-    public FigureView(Figure figure) throws IOException {
+    FigureView(Figure figure) throws IOException {
         this.figure = figure;
 
         if (figure instanceof Pawn) {
-            if (figure.isColor()) {
+            if (figure.getColor()) {
                 bufferedImage = ImageIO.read(new File("./ChessImg/blackPawn.png"));
             } else {
                 bufferedImage = ImageIO.read(new File("./ChessImg/whitePawn.png"));
@@ -29,7 +29,7 @@ public class FigureView extends JComponent{
 
 
         } else if (figure instanceof Rook) {
-            if (figure.isColor()) {
+            if (figure.getColor()) {
                 bufferedImage = ImageIO.read(new File("./ChessImg/blackRook.png"));
             } else {
                 bufferedImage = ImageIO.read(new File("./ChessImg/whiteRook.png"));
@@ -37,7 +37,7 @@ public class FigureView extends JComponent{
 
 
         } else if (figure instanceof Knight) {
-            if (figure.isColor()) {
+            if (figure.getColor()) {
                 bufferedImage = ImageIO.read(new File("./ChessImg/blackKnight.png"));
             } else {
                 bufferedImage = ImageIO.read(new File("./ChessImg/whiteKnight.png"));
@@ -45,7 +45,7 @@ public class FigureView extends JComponent{
 
 
         } else if (figure instanceof Bishop) {
-            if (figure.isColor()) {
+            if (figure.getColor()) {
                 bufferedImage = ImageIO.read(new File("./ChessImg/blackBishop.png"));
             } else {
                 bufferedImage = ImageIO.read(new File("./ChessImg/whiteBishop.png"));
@@ -53,7 +53,7 @@ public class FigureView extends JComponent{
 
 
         } else if (figure instanceof Queen) {
-            if (figure.isColor()) {
+            if (figure.getColor()) {
                 bufferedImage = ImageIO.read(new File("./ChessImg/blackQueen.png"));
             } else {
                 bufferedImage = ImageIO.read(new File("./ChessImg/whiteQueen.png"));
@@ -61,7 +61,7 @@ public class FigureView extends JComponent{
 
 
         } else if (figure instanceof King) {
-            if (figure.isColor()) {
+            if (figure.getColor()) {
                 bufferedImage = ImageIO.read(new File("./ChessImg/blackKing.png"));
             } else {
                 bufferedImage = ImageIO.read(new File("./ChessImg/whiteKing.png"));
